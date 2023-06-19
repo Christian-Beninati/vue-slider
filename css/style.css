@@ -8,14 +8,12 @@
     max-width: 1200px;
     height: 100vh;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 #carousel {
     height: 350px;
-    width: 900px;
+    width: 750px;
+    margin: 50px auto;
     position: relative;
 }
 
@@ -23,28 +21,73 @@
     height: 100%;
 }
 
+#carousel figure {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#carousel figcaption {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    text-align: right;
+    text-align: right;
+    color: white;
+}
+
 #carousel img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: none;
 }
 
 #carousel .arrow {
     position: absolute;
-    left : 50%;
+    top : 50%;
     font-size: 2rem;
     color: lightgray;
+    cursor: pointer;
+    translate: 0 -50%;
 }
 
 #previous {
-    top: 5%;
+    right: 105%;
 }
 
 #next {
-    bottom: 5%;
+    left: 105%;
 }
 
-#carousel img.active {
-    display: block;
+
+/* thumbnail */
+
+#thumbnails{
+    width: 750px;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#thumbnails img {
+    height: 100%;
+    width: 19%;
+    margin-top: 20px;
+    border-radius: 10px;
+    filter: grayscale(1);
+    object-fit: cover;
+    cursor: pointer;
+    transition: translate 0.5s;
+}
+
+#thumbnails img.active {
+    filter: grayscale(0);
+    box-shadow: 0 0 10px lightskyblue ;
+}
+
+#thumbnails img:hover {
+    filter: grayscale(0.5);
+    translate: 0 -10px;
 }

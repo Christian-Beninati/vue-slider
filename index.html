@@ -12,16 +12,53 @@
     <!-- Style -->
  <link rel="stylesheet" href="css/style.css">
 
+  <!-- VueJS -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
 <!-- JavaScript -->
-    <script defer src="js/script.js"></script>
+    <!-- <script defer src="js/script.js"></script> -->
+    <script defer src="js/data.js"></script>
+    <script defer src="js/main.js"></script>
 
 </head>
 <body>
-    <div class="container">
+    <!-- Container -->
+    <div id="root" class="container">
+        <!-- Carousel -->
         <div id="carousel">
-            <i class=" arrow fa-solid fa-circle-chevron-up" id="previous"></i>
-            <div class="gallery"></div>
-            <i class=" arrow fa-solid fa-circle-chevron-down" id="next"></i>
+
+            <!-- Left Arrow -->
+            <i class=" arrow fa-solid fa-circle-arrow-left" id="previous" 
+            @click="goToPrevious"></i>
+            
+            <!-- gallery -->
+            <div class="gallery">
+                <!-- Figure -->
+                <figure v-for="(picture, i) in images" v-show="currentIndex === i ">
+                    <!-- Image -->
+                    <img  :src="picture.image"  alt="figures 1" >
+                    <!-- Figcaption -->
+                    <figcaption>
+                        <!-- Title -->
+                        <h2>{{picture.title}}</h2>
+                        <!-- Text -->
+                        <p>{{picture.text}}</p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <!-- Right Arrow -->
+            <i class=" arrow fa-solid fa-circle-arrow-right" id="next" 
+            @click="goToNext"></i>
+        </div>
+
+        <!-- Thumbnails -->
+        <div id="thumbnails">
+            <!-- Image -->
+            <img v-for="(picture, i) in images" 
+            :src="picture.image" 
+            alt="figures 1"  
+            :class="{active : currentIndex === i}">
         </div>
     </div>
 </body>
