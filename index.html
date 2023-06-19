@@ -58,7 +58,8 @@
             <img v-for="(picture, i) in images" 
             :src="picture.image" 
             alt="figures 1"  
-            :class="{active : currentIndex === i}">
+            :class="{active : currentIndex === i}"
+            @click="setCurrentIndex(i)">
         </div>
     </div>
 </body>

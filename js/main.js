@@ -51,7 +51,14 @@ const app = createApp({
               } else {
                 this.currentIndex--;
               }
-        }
+        },
+
+        
+        // Metodo (funzione) Thumbnails image (setto il current index)
+        setCurrentIndex(targetIndex) {
+            this.currentIndex = targetIndex;
+          }
+
     }
 });
 
