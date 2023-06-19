@@ -7,6 +7,8 @@ const { createApp } = Vue;
 const app = createApp({
     data(){               
         return{
+            // Autoplay
+            autoplay: null,
             // current Index
             currentIndex: 0,
             // Array di oggetti
@@ -65,13 +67,23 @@ const app = createApp({
         // Metodo (funzione) Thumbnails image (setto il current index)
         setCurrentIndex(targetIndex) {
             this.currentIndex = targetIndex;
-          }
+        },
 
+        // Metodo (funzione) Stop Autoplay (per thumbnails e button next e prev.)
+        stopAutoplay() {
+            clearInterval(this.autoplay);
+        },
+
+        // Metodo (funzione) riavvio Autoplay (per thumbnails e button next a prev.)
+        startAutoplay(){
+            this.autoplay = setInterval(this.goToNext, 3000);
+        }
     },
 
-    // LifeCycle Methods
+    // LifeCycle Methods, si attiva all'invio della pagina
+    // invoco Autoplay
     mounted(){
-        setInterval(this.goToNext, 3000)
+        this.startAutoplay();
     }
 });
 

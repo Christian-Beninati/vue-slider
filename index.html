@@ -29,7 +29,10 @@
 
             <!-- Left Arrow -->
             <i class=" arrow fa-solid fa-circle-arrow-left" id="previous" 
-            @click="goToPrevious"></i>
+            @click="goToPrevious"
+            @mouseenter="stopAutoplay"
+            @mouseleave="startAutoplay">
+            </i>
             
             <!-- gallery -->
             <div class="gallery">
@@ -49,7 +52,9 @@
 
             <!-- Right Arrow -->
             <i class=" arrow fa-solid fa-circle-arrow-right" id="next" 
-            @click="goToNext"></i>
+            @click="goToNext"
+            @mouseenter="stopAutoplay"
+            @mouseleave="startAutoplay"></i>
         </div>
 
         <!-- Thumbnails -->
@@ -59,7 +64,9 @@
             :src="picture.image" 
             alt="figures 1"  
             :class="{active : currentIndex === i}"
-            @click="setCurrentIndex(i)">
+            @click="setCurrentIndex(i)"
+            @mouseenter="stopAutoplay"
+            @mouseleave="startAutoplay">
         </div>
     </div>
 </body>
