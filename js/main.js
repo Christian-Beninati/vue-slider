@@ -35,10 +35,18 @@ const app = createApp({
             ]
         }
     },
+
+    computed: {
+        // ultima image
+        isLasttPicture(){
+            return this.currentIndex === this.images.length - 1 
+        }
+    },
+
     methods:{
         // Metodo (funzione) (next image infinito)
         goToNext(){
-            if (this.currentIndex === this.images.length - 1) {
+            if (this.isLasttPicture) {
                 this.currentIndex = 0;
               } else {
                 this.currentIndex++;
@@ -59,6 +67,11 @@ const app = createApp({
             this.currentIndex = targetIndex;
           }
 
+    },
+
+    // LifeCycle Methods
+    mounted(){
+        setInterval(this.goToNext, 3000)
     }
 });
 
